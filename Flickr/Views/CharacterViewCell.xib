@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterViewCell" id="gTV-IL-0wX" customClass="PhotoCell" customModule="Flickr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="126" height="185"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="126" height="185"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ap4-us-SF2">
+                        <rect key="frame" x="53" y="82" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="80K-m1-OMu">
+                        <rect key="frame" x="0.0" y="0.0" width="126" height="185"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="80K-m1-OMu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Hfo-Xz-BWB"/>
+                <constraint firstItem="Ap4-us-SF2" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="JHB-If-XPs"/>
+                <constraint firstItem="80K-m1-OMu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LUU-pe-jBf"/>
+                <constraint firstAttribute="trailing" secondItem="80K-m1-OMu" secondAttribute="trailing" id="Q03-N9-wXx"/>
+                <constraint firstItem="Ap4-us-SF2" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ViN-h5-XQn"/>
+                <constraint firstAttribute="bottom" secondItem="80K-m1-OMu" secondAttribute="bottom" id="rud-BV-gke"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="126" height="185"/>
+            <connections>
+                <outlet property="characterImageView" destination="80K-m1-OMu" id="ZV5-sH-452"/>
+            </connections>
+            <point key="canvasLocation" x="72" y="-13.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
