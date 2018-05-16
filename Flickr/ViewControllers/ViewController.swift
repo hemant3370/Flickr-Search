@@ -73,11 +73,14 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
         searchBar.resignFirstResponder()
         items.removeAll()
         collectionView.reloadData()
+        if let query = searchBar.text {
+        searchText = query
         searchPhotos(completion: { success in
             if success {
                 searchBar.text = nil
             }
         })
+        }
     }
     func updateSearchResults(for searchController: UISearchController) {
         collectionView.reloadData()
