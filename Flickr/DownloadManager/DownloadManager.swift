@@ -25,7 +25,6 @@ class DownloadManager: ImageDownloader {
     
     func getImage(for url: URL, completion: @escaping (URL?, UIImage?) -> Void) {
         callBacks[url.absoluteString] = completion
-        let session: URLSession = self.prepareSessionForRequest()
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = "GET"
         if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) {
@@ -40,7 +39,7 @@ class DownloadManager: ImageDownloader {
         else {
 //          "cache not found:")
             var dataTask: URLSessionDataTask
-            dataTask = session.dataTask(with: request, completionHandler: {  (data : Data?, response : URLResponse?, error :Error?) in
+            dataTask = URLSession.shared.dataTask(with: request, completionHandler: {  (data : Data?, response : URLResponse?, error :Error?) in
                 if (error == nil && data != nil && data?.count != 0) {
                         if let urlString = response?.url?.absoluteString, let imageData = data, let image = UIImage(data: imageData){
                             DispatchQueue.main.async {
@@ -64,10 +63,5 @@ class DownloadManager: ImageDownloader {
     func clearCache() {
         imageCache.removeAllObjects()
     }
-    
-    func prepareSessionForRequest() -> URLSession {
-        let defaultConfigObject: URLSessionConfiguration = URLSessionConfiguration.default
-        let session: URLSession = URLSession(configuration: defaultConfigObject)
-        return session
-    }
+   
 }
